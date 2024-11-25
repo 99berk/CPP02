@@ -13,6 +13,13 @@ Fixed::Fixed(const Fixed &other)
     *this = other;
 }
 
+Fixed &Fixed::operator=(const Fixed &other)
+{
+    if (this != &other)
+        this->setRawBits(other.getRawBits());
+    return (*this);
+}
+
 Fixed::Fixed(const int _int)
 {
     this->setRawBits(_int << this->fracValue);
