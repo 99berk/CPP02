@@ -121,7 +121,7 @@ float Fixed::operator-(const Fixed &other)
 
 Fixed Fixed::operator++(int)
 {
-    Fixed   tmp(*this);
+    Fixed   tmp;
     tmp.fixedValue = this->fixedValue++;
     return (tmp);
 }
@@ -134,7 +134,7 @@ Fixed &Fixed::operator++(void)
 
 Fixed Fixed::operator--(int)
 {
-    Fixed   tmp(*this);
+    Fixed   tmp;
     tmp.fixedValue = this->fixedValue--;
     return (tmp);
 }
@@ -147,22 +147,22 @@ Fixed &Fixed::operator--(void)
 
 Fixed &Fixed::max(Fixed &obj_1, Fixed &obj_2)
 {
-    return (obj_1.toFloat() < obj_2.toFloat()) ? obj_1 : obj_2;
+    return (obj_1.getRawBits() < obj_2.getRawBits()) ? obj_1 : obj_2;
 }
 
 Fixed &Fixed::min(Fixed &obj_1, Fixed &obj_2)
 {
-    return (obj_1.toFloat() < obj_2.toFloat()) ? obj_1 : obj_2;
+    return (obj_1.getRawBits() < obj_2.getRawBits()) ? obj_1 : obj_2;
 }
 
 const Fixed &Fixed::max(const Fixed &obj_1, const Fixed &obj_2)
 {
-    return (obj_1.toFloat() > obj_2.toFloat()) ? obj_1 : obj_2;
+    return (obj_1.getRawBits() > obj_2.getRawBits()) ? obj_1 : obj_2;
 }
 
 const Fixed &Fixed::min(const Fixed &obj_1, const Fixed &obj_2)
 {
-    return (obj_1.toFloat() < obj_2.toFloat()) ? obj_1 : obj_2;
+    return (obj_1.getRawBits() < obj_2.getRawBits()) ? obj_1 : obj_2;
 }
 
 Fixed::~Fixed(void)
